@@ -30,12 +30,25 @@
             var numerosInteios = arrayNumeros[0];
             var numerosCentavos = arrayNumeros[1];
             var resultado = ""
+            var plural = ""
             var conjuntoExtenso = pegarConjuntoExtenso();
+            var centavos = ""
 
-            if (conjuntoExtenso[numerosInteios]) {
-                resultado = conjuntoExtenso[numerosInteios] + " reais"
+            if (numerosInteios == "1") {
+                plural =" real ";
+            } else {
+                plural =" reais ";
             }
-            preencheResultado(resultado);
+
+            if (conjuntoExtenso[numerosCentavos]) {
+                centavos = " e " + conjuntoExtenso[numerosCentavos] + " centavos"
+            }
+            
+            if (conjuntoExtenso[numerosInteios]) {
+                resultado = conjuntoExtenso[numerosInteios] + plural + centavos
+                preencheResultado(resultado);
+            }
+                
         }
 
         function preencheResultado(stringFinal) {
